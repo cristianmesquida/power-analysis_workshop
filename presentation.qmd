@@ -50,6 +50,8 @@ knitr::include_graphics("figures/old.png")
 
 -   If we were going to repeat the same experiment 1000 times, how many times would we observe a significant effect?
 
+-   Or in other words, how many times would we obtain a confidence interval that does not contain 0?
+
 ## Frequentist interpretation of power
 
 Distribution of *p*-values when power is \~80%
@@ -134,7 +136,7 @@ Consider, for example:
 
 -   conducting invasive procedures such as muscle biopsies
 
-## Sample size justification 
+## Sample size justification
 
 ```{r fig.align ="center", out.width="70%"}
 knitr::include_graphics("figures/justifications.png")

@@ -9,12 +9,12 @@ execute:
   warning: false
 ---
 
-Load packages
+Load packages:
 
 ```{r}
 #| message: false
 
-library(MBESS)      # account for uncertainity
+library(MBESS)      # account for uncertainity in effect sizes
 library(dplyr)      # tidy data
 library(purrr)      # itinerations
 library(effectsize) # calculate effect sizes
@@ -23,7 +23,7 @@ library(faux)       # simulate data for factorial designs
 library(pwr)        # power analysis for basic designs (eg., t-test)
 library(Superpower) # power analysis for factorial design
 library(TOSTER)     # equivalence tests
-library(pwr2ppl)    # power analysis
+library(pwr2ppl)    # power analysis for basic designs and logistic regression
 library(emmeans)    # marginal means and post hoc comparisons
 ```
 
@@ -67,7 +67,7 @@ In sports and exercise science, **factorial designs** are common. These designs 
 
 #### Superpower
 
-`Superpower` [@caldwell2022] is an R package (also available as [Shiny app](https://shiny.ieis.tue.nl/anova_power/)) to conduct power analyses. One of the main benefits of `Superpower` is that it does not require a standardized effect size, in contrast to tools such as G\*Power or `pwr`.
+`Superpower` [@caldwell2022] is an *R* package (also available as [Shiny app](https://shiny.ieis.tue.nl/anova_power/)) to conduct power analyses. One of the main benefits of `Superpower` is that it does not require a standardized effect size, in contrast to tools such as G\*Power or `pwr`.
 
 ##### Between-subject ANOVA
 
@@ -244,7 +244,7 @@ We adjust $\alpha$ (i.e., $\alpha$ divided by the number of comparisons) because
 
 Suppose we are interested in testing the following research question:
 
--   Does increasing doses of caffeine produce a dose–response effect on power output during a time trial, compared with water (placebo)?
+-   *Does increasing doses of caffeine produce a dose–response effect on power output during a time trial, compared with water (placebo)?*
 
 ```{r}
 design_result <- ANOVA_design(
@@ -297,7 +297,7 @@ design_result <- ANOVA_design(
   n = 80,
   mu = c(120, 125, 120, 130),
   sd = 20,  # common standard deviation
-  r <- 0.8, # common correlation
+  r = 0.8, # common correlation
   labelnames = c("Supplement",
                  "water", "coffee",
                  "WARMUP",
@@ -358,31 +358,91 @@ res_sim$pc_results
 
 ##### 2x2 mixed ANOVA
 
+Now suppose we are interested in the following RQ:
+
+-   *Does a 4-week HIIT training (2 sessions per week) lead to changes in* $VO_{2max}$ *at 6 weeks post-intervention?*
+
 ```{r}
 design_result <- ANOVA_design(
   design = "2b*2w",
   n = 80,
-  mu = c(120, 120, 120, 130),
+  mu = c(65, 75, 65, 72),
   sd = c(10, 10, 20, 20),  # assing different SDs
-  r <- 0.8,                # common correlation
-  labelnames = c("Supplement",
-                 "placebo", "coffee",
+  r = 0.8,                # common correlation
+  labelnames = c("Intervention",
+                 "HIIT", "Standard",
                  "Time",
                  "pre", "post"),
   plot = TRUE)
 ```
 
 ```{r}
+#| echo: false
 res <- ANOVA_exact(
   design_result,
   alpha_level = 0.05
   )
+```
 
+Power for main effects and interaction effects:
+
+```{r}
 res$main_results
 ```
 
+Power for the comparison between interventions at week 6:
+
 ```{r}
-res$pc_results
+res$pc_results[5,]
+```
+
+### 
+
+Now suppose we are interested in answering the following RQ:
+
+-   *Does a 4-week HIIT training (2 sessions per week) lead to changes in* $VO_{2max}$ *at 6 and 8 weeks post-intervention?*
+
+```{r}
+design_result <- ANOVA_design(
+  design = "2b*3w",
+  n = 80,
+  mu = c(75, 82, 82, 75, 79, 77),
+  sd = 10,  
+  r = 0.8,                # common correlation
+  labelnames = c("Intervention",
+                 "HIIT", "Standard",
+                 "Time",
+                 "pre", "post6", "post8"),
+  plot = TRUE)
+```
+
+```{r}
+#| echo: false
+
+res <- ANOVA_exact(
+  design_result,
+  alpha_level = 0.05,
+  emm = TRUE
+  )
+```
+
+```{r}
+emm_results <- res$emmeans$emmeans
+```
+
+Compare HIIT vs Standard at each time point (post6, post8, etc.):
+
+```{r}
+pairwise_results <- emmeans(
+  emm_results,
+  pairwise ~ Intervention | Time
+)
+```
+
+Power of each comparison:
+
+```{r}
+emmeans_power(pairwise_results$contrasts)
 ```
 
 ### Linear model regression with one single dichotomous predictor
@@ -714,7 +774,7 @@ We can also use the same in differnce-in-difference approach for factorial withi
 
 Sports scientists typically aim to reject the null hypothesis of zero (i.e., $H_0$ =0) to conclude that two interventions differ, or that one is superior or inferior to a standard intervention. However, in some cases, researchers are instead interested in determining whether two interventions are equivalent [@lakens2018; @mazzolari2022]. In such situations, an equivalence test must be conducted.
 
-```{r fig.align ="center", out.width="50%", fig.show="hold"}
+```{r fig.align ="center", out.width="80%", fig.show="hold"}
 knitr::include_graphics("figures/types_hypothesis.png")
 ```
 
