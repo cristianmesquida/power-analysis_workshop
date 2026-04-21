@@ -195,7 +195,7 @@ Now suppose that we are interested in the following RQ:
 ```{r}
 design_study <- ANOVA_design(
   design = "3b",
-  n = 40,
+  n = 90,
   mu = c(120, 125, 130),
   sd = 20,  # common standard deviation
   labelnames = c("Supplement",
@@ -536,7 +536,7 @@ sim1 <- function(effect, n){
 }
 
 # Run the simulation function
-p_values <- replicate(1000, sim1(effect = 5, n = 100))
+p_values <- replicate(1000, sim1(effect = 4, n = 100))
 
 # Count how many p-values are smaller than the alpha level
 mean(p_values < 0.05)
@@ -783,11 +783,11 @@ Suppose we are interested in answering the following RQ:
 -   *Is the effect of taking a nap comparable to cryotherapy on force loss after a football match, as measured during an isokinetic knee test?*
 
 ```{r}
-n <- 30              # sample size
+n <- 112            # sample size
 d <- 0.1             # expected mean difference
 sd <- 1              # expected standard deviation
-low <- - 0.3         # lower bound of the region of equivalence
-high <- 0.3          # upper bound of the region of equivalence
+low <- - 0.3        # lower bound of the region of equivalence
+high <- 0.3        # upper bound of the region of equivalence
 type <- "two_sample" # type of test ("one_sample", "two_sample")
 
 power_t_TOST(

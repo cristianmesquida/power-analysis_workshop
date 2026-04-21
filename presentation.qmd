@@ -177,7 +177,7 @@ $$
 ```{r}
 #| echo: true
 
-crit_d <- criticalESvalue::critical_t2s(m1 = 60, m2 = 57, sd1 = 12, sd2 = 12, n1 = 15, n2 = 15, var.equal = FALSE,hypothesis = "greater", conf.level = 0.95)
+crit_d <- criticalESvalue::critical_t2s(m1 = 60, m2 = 57, sd1 = 12, sd2 = 12, n1 = 200, n2 = 200, var.equal = FALSE,hypothesis = "greater", conf.level = 0.95)
 
 kableExtra::kable(dplyr::bind_rows(
   type_effect_size = c("d", "g"), 

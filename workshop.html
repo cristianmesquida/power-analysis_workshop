@@ -591,7 +591,7 @@ p_Supplement_water_WARMUP_short_Supplement_coffee_WARMUP_short 93.72723
 p_Supplement_coffee_WARMUP_long_Supplement_coffee_WARMUP_short 99.99997
                                                                  effect_size
 p_Supplement_water_WARMUP_long_Supplement_water_WARMUP_short    3.952847e-01
-p_Supplement_water_WARMUP_long_Supplement_coffee_WARMUP_long   -8.426000e-17
+p_Supplement_water_WARMUP_long_Supplement_coffee_WARMUP_long    8.952625e-17
 p_Supplement_water_WARMUP_long_Supplement_coffee_WARMUP_short   7.905694e-01
 p_Supplement_water_WARMUP_short_Supplement_coffee_WARMUP_long  -3.952847e-01
 p_Supplement_water_WARMUP_short_Supplement_coffee_WARMUP_short  3.952847e-01
@@ -614,9 +614,9 @@ p_Supplement_coffee_WARMUP_long_Supplement_coffee_WARMUP_short  7.905694e-01</co
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>res_sim<span class="sc">$</span>main_results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                        power effect_size
-anova_Supplement         68.2  0.08116607
-anova_WARMUP            100.0  0.41775678
-anova_Supplement:WARMUP  68.5  0.08225561</code></pre>
+anova_Supplement         69.3  0.08581276
+anova_WARMUP            100.0  0.41655678
+anova_Supplement:WARMUP  68.2  0.08214370</code></pre>
 </div>
 </div>
 <p>Power for pairwise comparisons:</p>
@@ -624,19 +624,19 @@ anova_Supplement:WARMUP  68.5  0.08225561</code></pre>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>res_sim<span class="sc">$</span>pc_results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                                               power
-p_Supplement_water_WARMUP_long_Supplement_water_WARMUP_short    94.7
-p_Supplement_water_WARMUP_long_Supplement_coffee_WARMUP_long     5.0
+p_Supplement_water_WARMUP_long_Supplement_water_WARMUP_short    94.4
+p_Supplement_water_WARMUP_long_Supplement_coffee_WARMUP_long     4.1
 p_Supplement_water_WARMUP_long_Supplement_coffee_WARMUP_short  100.0
-p_Supplement_water_WARMUP_short_Supplement_coffee_WARMUP_long   94.0
-p_Supplement_water_WARMUP_short_Supplement_coffee_WARMUP_short  94.4
+p_Supplement_water_WARMUP_short_Supplement_coffee_WARMUP_long   93.8
+p_Supplement_water_WARMUP_short_Supplement_coffee_WARMUP_short  93.6
 p_Supplement_coffee_WARMUP_long_Supplement_coffee_WARMUP_short 100.0
                                                                 effect_size
-p_Supplement_water_WARMUP_long_Supplement_water_WARMUP_short    0.399430028
-p_Supplement_water_WARMUP_long_Supplement_coffee_WARMUP_long   -0.002935016
-p_Supplement_water_WARMUP_long_Supplement_coffee_WARMUP_short   0.800598633
-p_Supplement_water_WARMUP_short_Supplement_coffee_WARMUP_long  -0.401441385
-p_Supplement_water_WARMUP_short_Supplement_coffee_WARMUP_short  0.398075746
-p_Supplement_coffee_WARMUP_long_Supplement_coffee_WARMUP_short  0.799415968</code></pre>
+p_Supplement_water_WARMUP_long_Supplement_water_WARMUP_short    0.399153021
+p_Supplement_water_WARMUP_long_Supplement_coffee_WARMUP_long    0.004371962
+p_Supplement_water_WARMUP_long_Supplement_coffee_WARMUP_short   0.799349954
+p_Supplement_water_WARMUP_short_Supplement_coffee_WARMUP_long  -0.396502042
+p_Supplement_water_WARMUP_short_Supplement_coffee_WARMUP_short  0.402364855
+p_Supplement_coffee_WARMUP_long_Supplement_coffee_WARMUP_short  0.798536662</code></pre>
 </div>
 </div>
 </section>
@@ -839,7 +839,7 @@ Power and Effect sizes for estimated marginal means
   partial_eta_squared      cohen_f non_centrality
 1        2.227723e-02 1.509464e-01   3.600000e+00
 2        5.952381e-02 2.515773e-01   1.000000e+01
-3        1.452659e-33 3.811376e-17   2.295201e-31</code></pre>
+3        3.169277e-33 5.629633e-17   5.007458e-31</code></pre>
 </div>
 </div>
 </section>
@@ -1147,7 +1147,7 @@ NOTE: n is number in *each* group</code></pre>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"figures/simple_effect.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-simple" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" width="70%">
+<div id="fig-simple" class="quarto-float quarto-figure quarto-figure-center anchored" width="70%" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-simple-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figures/simple_effect.png" id="fig-simple" class="img-fluid quarto-figure quarto-figure-center anchored figure-img" style="width:70.0%">
