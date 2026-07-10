@@ -1,14 +1,6 @@
 ## Description
 
-This repository contains the slides for the morning session and the materials for the afternoon practical session of the *Power analysis* workshop I delivered at the University of Vic (Barcelona)
-
-The slides are available at: [Morning session]()
-
-## Repository structure
-
-## Description
-
-This repository contains the slides for the morning session and the materials for the afternoon practical session of the *Power Analysis* workshop.
+This repository contains the slides for the morning session and the materials for the afternoon practical session of the *Power Analysis* workshop I delivered at the University of Vic (Barcelona).
 
 Both the slides and the materials are available at: [Power analysis workshop](https://cristianmesquida.github.io/power-analysis_workshop/)
 
