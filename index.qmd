@@ -5,15 +5,14 @@ format:
     toc: false
 ---
 
-# Power Analysis Workshop
-
 Welcome! This website contains the materials for the **Power Analysis** workshop.
 
 ## Morning session
 
-📊 **Lecture slides**
+📊 **Morning slides**
 
-- [Power Analysis I and II](morning.html)
+- [Talk](morning.html)
+
 
 ## Afternoon practical
 
@@ -21,6 +20,4 @@ Welcome! This website contains the materials for the **Power Analysis** workshop
 
 - [Practical session](afternoon.html)
 
----
 
-**University of Vic (Barcelona)**

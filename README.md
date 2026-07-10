@@ -10,7 +10,7 @@ The slides are available at: [Morning session]()
 
 This repository contains the slides for the morning session and the materials for the afternoon practical session of the *Power Analysis* workshop.
 
-The morning session slides are available at: [Morning session]()
+Both the slides and the materials are available at: [Power analysis workshop](https://cristianmesquida.github.io/power-analysis_workshop/)
 
 ## Repository structure
 
