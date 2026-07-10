@@ -1,0 +1,26 @@
+---
+title: "Power Analysis Workshop"
+format:
+  html:
+    toc: false
+---
+
+# Power Analysis Workshop
+
+Welcome! This website contains the materials for the **Power Analysis** workshop.
+
+## Morning session
+
+📊 **Lecture slides**
+
+- [Power Analysis I and II](morning.html)
+
+## Afternoon practical
+
+💻 **Workshop materials**
+
+- [Practical session](afternoon.html)
+
+---
+
+**University of Vic (Barcelona)**
